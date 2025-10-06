@@ -1,30 +1,26 @@
 package com.java.annotations.food;
 
 import java.io.Serializable;
-
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.springframework.stereotype.Component;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Builder
+@Component
 public class Meal implements Serializable {
 
-	
-	private Fruit fruit;
-	
-	private Dairy dairy;
-	
-	private Grain grain;
-	
-	private Meat meat;
-	
-	private Vegetable veg;
+	private static final long serialVersionUID = 1L;
+
+	private final Fruit fruit;
+	private final Dairy dairy;
+	private final Grain grain;
+	private final Meat meat;
+	private final Vegetable veg;
 	
 	public String whatsInThisMeal() {
 		
@@ -45,7 +41,6 @@ public class Meal implements Serializable {
 		if(veg != null) {
 			answer += "some vegetables: ";
 		}
-		
 		return answer;
 	}
 }
